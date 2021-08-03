@@ -1,25 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import QuizBlock from './Components/QuizBlock';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App d-flex flex-column justify-content-between">
+			<Header />
+			<div className="container my-5">
+				<QuizBlock />
+			</div>
+			<Footer />
+		</div>
+	);
 }
 
 export default App;
