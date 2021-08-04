@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
+import { Animate } from "react-simple-animate";
 
 const globalData = [
 	{
@@ -118,6 +119,13 @@ function QuizBlock() {
 		setDbClicked(true);
 	}
 
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setDbClicked(false);
+		}, 5000);
+		return () => clearTimeout(timer);
+	}, [dbClicked])
+
 	return (
 		<div className='quiz-block'>
 			<div className="sentence-card card bg-light mb-2">
@@ -134,8 +142,13 @@ function QuizBlock() {
 					)}
 				</div>
 			</div>
-			{dbClicked && (
+			<Animate play={dbClicked}
+				start={{ opacity: 0 }}
+				duration={1}
+				end={{ opacity: 1 }}
+			>
 				<div
+					style={{ display: dbClicked ? 'block' : 'none' }}
 					className="alert alert-primary alert-dismissible fade show"
 					role="alert">
 					{wordTranslate[0] ? (
@@ -148,7 +161,7 @@ function QuizBlock() {
 					)}
 					<button onClick={() => setDbClicked(false)} type="button" className="btn-close" aria-label="Close"></button>
 				</div>
-			)}
+			</Animate>
 			<div className="words-card card bg-light">
 				<div className="card-body">
 					<div className="sentence-block">
