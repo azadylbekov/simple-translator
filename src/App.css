@@ -6,6 +6,18 @@
 	z-index: 100;
 }
 
+.grammar-page {
+	margin-top: 20px;
+}
+
+.video-container {
+	width: 100%;
+}
+
+.video-container iframe {
+	width: 100%;
+}
+
 .quiz-block {
 	margin-top: 20px;
 }
